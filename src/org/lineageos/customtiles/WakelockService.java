@@ -42,7 +42,7 @@ public class WakelockService extends Service {
     public void onCreate() {
         mWakeLock = ((PowerManager) getSystemService(POWER_SERVICE))
                 .newWakeLock(PowerManager.SCREEN_BRIGHT_WAKE_LOCK, "CaffeineTile");
-
+                             newWakeLock.setReferenceCounted(false);
         IntentFilter screenStateFilter = new IntentFilter(Intent.ACTION_SCREEN_OFF);
         registerReceiver(mScreenStateReceiver, screenStateFilter);
     }
